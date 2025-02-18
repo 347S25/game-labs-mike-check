@@ -3,7 +3,7 @@ It's ultimate tic tac toe, but... 😆 player 1 is 🎤 and player 2 is ✅
 
 ## Data Model
 
-** NOTE: DJANGO ALREADY INCLUDES A USER MODEL THAT HAS A USERNAME, SO I WILL USE THAT RATHER THAN MAKING MY OWN CLASS.**
+**NOTE: DJANGO ALREADY INCLUDES A USER MODEL THAT HAS A USERNAME, SO I WILL USE THAT RATHER THAN MAKING MY OWN CLASS.**
 
 ```mermaid
 erDiagram
@@ -216,4 +216,3 @@ const gameMarks = [
     }
 ]
 ```
-
