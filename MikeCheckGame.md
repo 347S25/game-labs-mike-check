@@ -3,14 +3,16 @@ It's ultimate tic tac toe, but... 😆 player 1 is 🎤 and player 2 is ✅
 
 ## Data Model
 
+** NOTE: DJANGO ALREADY INCLUDES A USER MODEL THAT HAS A USERNAME, SO I WILL USE THAT RATHER THAN MAKING MY OWN CLASS.**
+
 ```mermaid
 erDiagram
     GAME ||--|{ GAMESTATE : states
-    GAME }|--|| PLAYER : player1
-    GAME }|--o{ PLAYER : players
+    GAME }|--|| USER : player1
+    GAME }|--o{ USER : players
     GAMESTATE ||--|{ BOARD : subboards
     BOARD |o--o{ MARK : marks
-    GAMESTATE ||--|| PLAYER : creator
+    GAMESTATE ||--|| USER : creator
     GAME {
         int id
         UUID hash
@@ -44,7 +46,7 @@ erDiagram
         int mark8
         int winner
     }
-    PLAYER {
+    USER {
         int id
         string username
     }
