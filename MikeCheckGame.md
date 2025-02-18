@@ -5,6 +5,8 @@ It's ultimate tic tac toe, but... 😆 player 1 is 🎤 and player 2 is ✅
 
 **NOTE: DJANGO ALREADY INCLUDES A USER MODEL THAT HAS A USERNAME, SO I WILL USE THAT RATHER THAN MAKING MY OWN CLASS.**
 
+https://docs.djangoproject.com/en/dev/topics/auth/customizing/#extending-the-existing-user-model
+
 ```mermaid
 erDiagram
     GAME ||--|{ GAMESTATE : states
