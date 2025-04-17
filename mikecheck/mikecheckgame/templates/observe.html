@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<dl>
+    <dt>Player</dt><dd>{{ player }}</dd>
+    <dt>Game</dt>
+    <dd>{{ game }}</dd>
+    <dd>
+      <table>
+        {% for major_row in board %}
+          <tr>
+            {% for sub_board in major_row %}
+              <td>
+                <table>
+                  {% for sub_board_row in sub_board %}
+                    <tr>
+                      {% for entry in sub_board_row %}
+                        <td>
+                          {% if entry %}
+                            {{ entry }}
+                          {% else %}
+                            _
+                          {% endif %}
+                        </td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </table>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    </dd>
+  </dl>
+{% endblock %}

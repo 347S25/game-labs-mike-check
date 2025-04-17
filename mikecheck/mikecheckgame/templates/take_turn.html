@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<dl>
+    <dt>Player</dt><dd>{{ player }}</dd>
+    <dt>Game</dt>
+    <dd>{{ game }}</dd>
+    <dd>
+      <form action="" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="game" value="{{ game.id }}">
+      <input type="hidden" name="player" value="{{ gameplayer.id }}">
+      <dl>
+        <dt>Join Code</dt>
+        <dd>{{game.join_code}}</dd>
+      </dl>
+      <table>
+        {% for major_row in board %}
+          <tr>
+            {% for sub_board in major_row %}
+              <td>
+                <table>
+                  {% for sub_board_row in sub_board.marks %}
+                    <tr>
+                      {% for entry in sub_board_row %}
+                        <td>
+                          {% if entry %}
+                            <input
+                              size="2"
+                              type="text"
+                              data-board-x="{{forloop.parentloop.parentloop.counter0}}"
+                              data-board-y="{{forloop.parentloop.parentloop.parentloop.counter0}}"
+                              data-cell-x="{{forloop.counter0}}"
+                              data-cell-y="{{forloop.parentloop.counter0}}"
+                              name="board-{{forloop.parentloop.parentloop.parentloop.counter0}}-{{forloop.parentloop.parentloop.counter0}}--entry-{{forloop.parentloop.counter0}}-{{forloop.counter0}}" value="{{ entry }}">
+                          {% else %}
+                            <input
+                              size="2"
+                              type="text"
+                              data-board-x="{{forloop.parentloop.parentloop.counter0}}"
+                              data-board-y="{{forloop.parentloop.parentloop.parentloop.counter0}}"
+                              data-cell-x="{{forloop.counter0}}"
+                              data-cell-y="{{forloop.parentloop.counter0}}"
+                              name="board-{{forloop.parentloop.parentloop.parentloop.counter0}}-{{forloop.parentloop.parentloop.counter0}}--entry-{{forloop.parentloop.counter0}}-{{forloop.counter0}}">
+                          {% endif %}
+                        </td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </table>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+      <button type="submit">Submit</button>
+      </form>
+    </dd>
+  </dl>
+{% endblock %}
+  

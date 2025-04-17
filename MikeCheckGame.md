@@ -218,3 +218,15 @@ const gameMarks = [
     }
 ]
 ```
+
+* wish that board had xy instead of order
+* board
+    * boardstatestring actually jsonfield
+        marks: [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ]
+
+
+* tell students about model managers

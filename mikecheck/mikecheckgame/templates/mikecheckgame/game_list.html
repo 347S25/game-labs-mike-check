@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Game List</h1>
+  {% if game_list %}
+    <ul>
+      {% for game in game_list %}
+      <li>
+        <a href="{{ game.get_absolute_url }}">{{ game.id }}</a>
+        <dl>
+          <dt>creator</dt><dd>{{game.creator}}</dd>
+          <dt>created_at</dt><dd>{{game.created_at}}</dd>
+          <dt>join_code</dt><dd>{{game.join_code}}</dd>
+          <dt>width</dt><dd>{{game.width}}</dd>
+          <dt>height</dt><dd>{{game.height}}</dd>
+          <dt>win_length</dt><dd>{{game.win_length}}</dd>
+          <dt>sub_width</dt><dd>{{game.sub_width}}</dd>
+          <dt>sub_height</dt><dd>{{game.sub_height}}</dd>
+          <dt>sub_win_length</dt><dd>{{game.sub_win_length}}</dd>
+        </dl>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no games.</p>
+  {% endif %}
+{% endblock %}
